@@ -3,6 +3,14 @@
   "private": true,
   "type": "module",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository.git"
+  },
+  "homepage": "https://github.com/Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository#readme",
+  "bugs": {
+    "url": "https://github.com/Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository/issues"
+  },
   "packageManager": "pnpm@10.20.0",
   "engines": {
     "node": ">=22"

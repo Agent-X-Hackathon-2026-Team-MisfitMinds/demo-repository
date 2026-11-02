@@ -243,7 +243,7 @@ interface Sandbox {
 
 ### 5.1 Action packaging
 
-`action.yml` at the root of `misfitminds/fixie`: `runs.using: node24`, `main: action/dist/index.js`, `post: action/dist/post.js` (finalise status on cancel). Inputs: `github-token` (required), `model` (default `github-models/openai/gpt-4.1-mini`; see presets), `llm-api-key`, `hub-url`, `mode` (`fix` | `doctor` | `sweep`, inferred from the event when omitted), `config-path` (default `.fixie.yml`). Built with esbuild into a single file; `dist/` committed on release tags; releases `v1.x.y` plus a moving `v1` tag; users are told to pin the full SHA.
+`action.yml` at the root of `Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository`: `runs.using: node24`, `main: action/dist/index.js`, `post: action/dist/post.js` (finalise status on cancel). Inputs: `github-token` (required), `model` (default `github-models/openai/gpt-4.1-mini`; see presets), `llm-api-key`, `hub-url`, `mode` (`fix` | `doctor` | `sweep`, inferred from the event when omitted), `config-path` (default `.fixie.yml`). Built with esbuild into a single file; `dist/` committed on release tags; releases `v1.x.y` plus a moving `v1` tag; users are told to pin the full SHA.
 
 ### 5.2 Workflow template (written by `fixie init`)
 
@@ -287,7 +287,7 @@ jobs:
     steps:
       - uses: actions/checkout@<pinned-sha> # v5
         with: { fetch-depth: 0, persist-credentials: false }
-      - uses: misfitminds/fixie@<pinned-sha> # v1
+      - uses: Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository@<pinned-sha> # v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           model: github-models/openai/gpt-4.1-mini
@@ -514,13 +514,13 @@ Postgres (Supabase), schema `public`, RLS on every table. Identity (`profiles`, 
 
 | Unit | Where | Notes |
 | --- | --- | --- |
-| Fixie repo | `github.com/misfitminds/fixie` (public, Apache-2.0) | Monorepo; CI on every PR |
+| Fixie repo | `github.com/Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository` (public, Apache-2.0) | Monorepo; CI on every PR |
 | Action | Same repo, release tags | `release.yml` builds `action/dist`, tags `v1.x.y`, moves `v1`, attests |
 | CLI | npm `@misfitminds/fixie` | Published with provenance from CI |
 | Hub | Vercel project `fixie-hub` (Hobby), function region matched to Supabase | Git integration: preview per PR, production on `main` |
 | Database | Supabase org **Whiteroom** → project **Fixie** (Free) | `supabase/migrations` applied by CI (`supabase db push`) on `main`, after tests |
 | GitHub Apps | `fixie-hub-dev` (webhooks via smee.io or `vercel dev` tunnel), `fixie-hub` (prod) | Permissions and events per D-14 |
-| Demo repos | `misfitminds/fixie-demo-python`, `misfitminds/fixie-demo-ts` (public) | Ruleset with 1 approval + last-push approval; `fixie.yml` with `hub-url`; 5 seeded bugs each with breaking commits in history |
+| Demo repos | `Agent-X-Hackathon-2026-Team-MisfitMinds/fixie-demo-python`, `Agent-X-Hackathon-2026-Team-MisfitMinds/fixie-demo-ts` (public) | Ruleset with 1 approval + last-push approval; `fixie.yml` with `hub-url`; 5 seeded bugs each with breaking commits in history |
 
 **Environments.** Local: Supabase CLI stack (`supabase start`), `next dev`, dev App, demo repos forked to a personal account. Preview: Vercel previews against a Supabase branch or the dev project. Production: prod App, prod project.
 

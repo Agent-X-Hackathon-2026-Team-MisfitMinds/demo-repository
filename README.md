@@ -22,6 +22,11 @@ Free, open-source (Apache-2.0) bug-fix agent for GitHub. Label an issue `fixie`;
 ## Develop
 
 ```bash
+git clone https://github.com/Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository.git
+cd demo-repository
+```
+
+```bash
 corepack enable
 pnpm install
 pnpm -r run typecheck

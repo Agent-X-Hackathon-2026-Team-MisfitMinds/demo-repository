@@ -5,3 +5,4 @@ export * from "./proof-card.ts";
 export * from "./events.ts";
 export * from "./labels.ts";
 export * from "./state-marker.ts";
+export * from "./repo.ts";

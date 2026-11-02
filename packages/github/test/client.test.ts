@@ -4,7 +4,7 @@ import {
   assertAllGatesPassed, assertAllowed, classifyProtection, FixieGitHub, ForbiddenGitHubCall, UngatedPullRequest, type Transport,
 } from "../src/index.ts";
 
-const R = "/repos/misfitminds/fixie-demo-python";
+const R = "/repos/Agent-X-Hackathon-2026-Team-MisfitMinds/fixie-demo-python";
 const forbidden = (fn: () => unknown) => expect(fn).toThrow(ForbiddenGitHubCall);
 
 describe("allow-list (SEC-07)", () => {
@@ -46,7 +46,7 @@ describe("allow-list (SEC-07)", () => {
 describe("FixieGitHub", () => {
   it("forces draft on PR creation and blocks before transport on forbidden calls", async () => {
     const t = vi.fn<Transport>(async () => ({ status: 201, data: { id: 1, number: 2, html_url: "u", head: { sha: "s" } } }));
-    const gh = new FixieGitHub(t, "misfitminds", "fixie-demo-python", "github-actions[bot]");
+    const gh = new FixieGitHub(t, "Agent-X-Hackathon-2026-Team-MisfitMinds", "fixie-demo-python", "github-actions[bot]");
     await gh.createDraftPullRequest({ title: "Fix #1: x", head: "fixie/issue-1", base: "main", body: "b" });
     expect(t.mock.calls[0]?.[2]).toMatchObject({ draft: true });
     await expect(gh.request("PUT", `${R}/pulls/2/merge`)).rejects.toThrow(ForbiddenGitHubCall);
@@ -54,7 +54,7 @@ describe("FixieGitHub", () => {
   });
   it("refuses to edit someone else's comment", async () => {
     const t: Transport = async () => ({ status: 200, data: { user: { login: "octocat" } } });
-    const gh = new FixieGitHub(t, "misfitminds", "fixie-demo-python", "github-actions[bot]");
+    const gh = new FixieGitHub(t, "Agent-X-Hackathon-2026-Team-MisfitMinds", "fixie-demo-python", "github-actions[bot]");
     await expect(gh.updateOwnComment(5, "x")).rejects.toThrow(ForbiddenGitHubCall);
   });
 });

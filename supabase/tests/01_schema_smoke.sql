@@ -8,11 +8,11 @@ insert into auth.users (id, email, raw_user_meta_data) values
 select 'profiles', count(*) from profiles;
 
 insert into installations (id, github_installation_id, account_github_id, account_login, account_type, repository_selection)
-values ('10000000-0000-0000-0000-000000000001', 555, 900, 'misfitminds', 'organization', 'selected');
+values ('10000000-0000-0000-0000-000000000001', 555, 900, 'Agent-X-Hackathon-2026-Team-MisfitMinds', 'organization', 'selected');
 insert into installation_settings (installation_id) values ('10000000-0000-0000-0000-000000000001');
 insert into memberships (user_id, installation_id, role) values ('00000000-0000-0000-0000-0000000000a1','10000000-0000-0000-0000-000000000001','admin');
 insert into repositories (id, installation_id, github_repo_id, full_name, name, default_branch, is_private)
-values ('20000000-0000-0000-0000-000000000001','10000000-0000-0000-0000-000000000001', 777, 'misfitminds/fixie-demo-python','fixie-demo-python','main', false);
+values ('20000000-0000-0000-0000-000000000001','10000000-0000-0000-0000-000000000001', 777, 'Agent-X-Hackathon-2026-Team-MisfitMinds/fixie-demo-python','fixie-demo-python','main', false);
 insert into repo_access (user_id, repository_id, installation_id, permission) values
  ('00000000-0000-0000-0000-0000000000a1','20000000-0000-0000-0000-000000000001','10000000-0000-0000-0000-000000000001','admin');
 

@@ -805,7 +805,7 @@ Each uploaded object gets an `artifacts` row (kind, bucket, size, sha256, `expir
 
 ## 15. Seed data plan (`supabase/seed.sql`, dev only)
 
-One installation `misfitminds` (admin + member user), three repos (`fixie-demo-python` Ready and On; `fixie-demo-ts` Ready and Off; `legacy-app` with missing workflow and `weak` ruleset), and about 24 runs created through `ingest_events()` (never by direct inserts into evidence tables) covering: every status, all 13 outcomes, a run with 2 rolled-back attempts and 3 hypotheses, bisect `found`/`dependency_boundary`/`no_good_commit`, low/medium/high confidence, a revise chain, a clarification waiting and one expired, PRs in draft/open/merged/closed, one ungated PR incident (on a separate paused installation). Seed data lets the frontend build every state before the engine exists.
+One installation `Agent-X-Hackathon-2026-Team-MisfitMinds` (admin + member user), three repos (`fixie-demo-python` Ready and On; `fixie-demo-ts` Ready and Off; `legacy-app` with missing workflow and `weak` ruleset), and about 24 runs created through `ingest_events()` (never by direct inserts into evidence tables) covering: every status, all 13 outcomes, a run with 2 rolled-back attempts and 3 hypotheses, bisect `found`/`dependency_boundary`/`no_good_commit`, low/medium/high confidence, a revise chain, a clarification waiting and one expired, PRs in draft/open/merged/closed, one ungated PR incident (on a separate paused installation). Seed data lets the frontend build every state before the engine exists.
 
 ## 16. Full SQL
 

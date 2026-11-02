@@ -81,3 +81,14 @@ describe("events", () => {
     expect(bad.success).toBe(false);
   });
 });
+
+import { FIXIE_ACTION_REF, isFixieActionRef, RULESET_HELP_URL } from "../src/index.ts";
+describe("repo constants (D-39)", () => {
+  it("action ref and help link", () => {
+    expect(FIXIE_ACTION_REF).toBe("Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository@v1");
+    expect(RULESET_HELP_URL).toBe("https://github.com/Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository#ruleset");
+    expect(isFixieActionRef("agent-x-hackathon-2026-team-misfitminds/demo-repository@0123abc")).toBe(true);
+    expect(isFixieActionRef("Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository")).toBe(false);
+    expect(isFixieActionRef("someone/demo-repository@v1")).toBe(false);
+  });
+});

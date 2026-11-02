@@ -42,7 +42,7 @@ When two documents disagree, the higher one wins: **05 Schema (names, enums, con
 
 ## 4. Canonical vocabulary
 
-**Product surfaces.** Fixie Action (`action.yml` at the repo root of `misfitminds/fixie`, used as `misfitminds/fixie@v1`) · Fixie CLI (binary `fixie`, npm package `@misfitminds/fixie`; see Q5) · Fixie Hub (the web app) · the engine (`packages/engine`, shared by Action and CLI).
+**Product surfaces.** Fixie Action (`action.yml` at the repo root of `Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository`, used as `Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository@v1`) · Fixie CLI (binary `fixie`, npm package `@misfitminds/fixie`; see Q5) · Fixie Hub (the web app) · the engine (`packages/engine`, shared by Action and CLI).
 
 **On GitHub.**
 
@@ -139,7 +139,7 @@ Defaults in brackets are what the build uses until you answer.
 | ID | Question | Default |
 | --- | --- | --- |
 | Q1 | Submission deadline and demo format (live or recorded)? | Plan assumes ~12 working days; live demo with a recorded backup |
-| Q2 | GitHub org name for the project and demo repos? | `misfitminds` |
+| Q2 | GitHub org name for the project and demo repos? | **Answered:** org `Agent-X-Hackathon-2026-Team-MisfitMinds`, Fixie repo `Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository` (D-39) |
 | Q3 | Which laptop runs the offline (Ollama) demo, and how much RAM/VRAM? | `qwen3-coder:30b` if ≥ 24 GB, `gpt-oss:20b` at 16 GB, `qwen2.5-coder:7b` at 8 GB |
 | Q4 | Supabase project region for Whiteroom → Fixie (Vercel functions must match)? | Mumbai `ap-south-1` ↔ Vercel `bom1` |
 | Q5 | Is the npm name `fixie` available? | Publish as `@misfitminds/fixie`, binary `fixie` |
@@ -174,3 +174,4 @@ D-35 · 2026-11-02 · Sandbox `/deps` is a per-run host directory (`$RUNNER_TEMP
 D-36 · 2026-11-02 · A custom `project.test` command may contain `{junit}`, replaced with the phase's JUnit output path; test file targets are appended · Lets custom commands still feed the gates
 D-37 · 2026-11-02 · Preset default models: gemini `gemini-2.5-flash`, groq `llama-3.3-70b-versatile`, openrouter `qwen/qwen3-coder:free`, openai `gpt-4.1-mini` ($0.40/$1.60 per 1M), anthropic `claude-haiku-4-5` ($1/$5 per 1M); `PRICES_CHECKED_AT` in `presets.ts` · TRD §6 left them "set in presets"; re-check catalogs before release
 D-38 · 2026-11-02 · Persistent HTTP 429, 403 or 404 from a model moves to the next `model.fallback` entry; other 4xx fail immediately; 5xx/network errors retry 3× with jittered backoff honouring `Retry-After` (≤ 60 s) · 403/404 cover a free-tier model being withdrawn mid-hackathon
+D-39 · 2026-11-02 · The Fixie repository is `https://github.com/Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository`: the Action is used as `Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository@v1`, the ruleset help link is `https://github.com/Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository#ruleset`, and demo repos live in the same org as `Agent-X-Hackathon-2026-Team-MisfitMinds/fixie-demo-python` and `Agent-X-Hackathon-2026-Team-MisfitMinds/fixie-demo-ts`. The npm package stays `@misfitminds/fixie` (npm scopes are lowercase and separate from GitHub orgs). Canonical values live in `packages/shared/src/repo.ts` · Hackathon-provided org and repo (answers Q2)

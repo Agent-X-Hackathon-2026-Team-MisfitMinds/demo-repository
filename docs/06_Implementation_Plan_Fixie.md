@@ -4,7 +4,7 @@ Oct 31, 2026 · @Mahajan Sarthak Dileep · Team MisfitMinds · Agent X Hackathon
 
 ## Overview
 
-Fixie is built as one pnpm + Turborepo monorepo, `misfitminds/fixie`, in nine phases: setup, authentication, database, core UI, main features, integrations, testing, deployment and final polish. The **engine is the critical path**: a labelled issue must become a gated draft PR with a Proof Card on GitHub (no Hub needed) before any dashboard polish matters. The Hub is built in parallel against seed data and joins the engine through the ingest API in Phase 6.
+Fixie is built as one pnpm + Turborepo monorepo, `Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository`, in nine phases: setup, authentication, database, core UI, main features, integrations, testing, deployment and final polish. The **engine is the critical path**: a labelled issue must become a gated draft PR with a Proof Card on GitHub (no Hub needed) before any dashboard polish matters. The Hub is built in parallel against seed data and joins the engine through the ingest API in Phase 6.
 
 **Lanes** (one teammate each after Phase 1; assign names in the workbook):
 
@@ -33,7 +33,7 @@ Fixie is built as one pnpm + Turborepo monorepo, `misfitminds/fixie`, in nine ph
 
 Phase 1 ends with a green monorepo, every account and key in place, two public demo repos with seeded bugs, and the six spikes run.
 
-1. **Monorepo.** `misfitminds/fixie`, Apache-2.0 `LICENSE`, `README.md` (quick start, how it works, ruleset guide), `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`. pnpm workspaces + Turborepo:
+1. **Monorepo.** `Agent-X-Hackathon-2026-Team-MisfitMinds/demo-repository`, Apache-2.0 `LICENSE`, `README.md` (quick start, how it works, ruleset guide), `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`. pnpm workspaces + Turborepo:
 
    ```text
    fixie/
@@ -51,7 +51,7 @@ Phase 1 ends with a green monorepo, every account and key in place, two public d
 3. **CI.** `.github/workflows/ci.yml` (install, lint, typecheck, unit tests, build, `action/dist` freshness check), `db.yml` (Supabase local stack, migrations, `supabase/tests/01_schema_smoke.sql`), CodeQL, Dependabot. Pin all third-party actions by SHA.
 4. **Shared contracts first** (`packages/shared`): enums from `00` §4, `.fixie.yml` Zod schema (TRD §7), event union (05 §9), trace manifest + JSON Schema, `ProofCard`, problem types and copy keys (03 §16), status/outcome label maps (03 §15). Every other package imports these; nothing redefines them.
 5. **Accounts and keys.** Supabase org Whiteroom → project Fixie (note region, Q4); Vercel project `fixie-hub`; GitHub Apps `fixie-hub-dev` and `fixie-hub` (permissions and events per D-14; callback `https://<project>.supabase.co/auth/v1/callback`; setup URL `/onboarding/complete`; webhook `/api/webhooks/github`); Supabase Auth GitHub provider with the App's client id/secret; optional Sentry. `.env.example` + a Zod env validator in `apps/hub/src/env.ts` that fails on boot.
-6. **Demo repos** (public, D-28): `misfitminds/fixie-demo-python` (pytest) and `misfitminds/fixie-demo-ts` (Vitest), each with ~40 passing tests and **5 seeded bugs introduced by identifiable commits** (so bisect has something to find), one bug whose obvious fix breaks another test (rollback demo, J7), one vague issue (clarification demo, J4), one non-reproducible issue (report demo, J5), and the **canary test** (SEC-18). Rulesets: 1 approval + last-push approval; Actions-PR setting on.
+6. **Demo repos** (public, D-28): `Agent-X-Hackathon-2026-Team-MisfitMinds/fixie-demo-python` (pytest) and `Agent-X-Hackathon-2026-Team-MisfitMinds/fixie-demo-ts` (Vitest), each with ~40 passing tests and **5 seeded bugs introduced by identifiable commits** (so bisect has something to find), one bug whose obvious fix breaks another test (rollback demo, J7), one vague issue (clarification demo, J4), one non-reproducible issue (report demo, J5), and the **canary test** (SEC-18). Rulesets: 1 approval + last-push approval; Actions-PR setting on.
 7. **Spikes** (TRD §15), each a throwaway branch with a written result in the workbook: S1 Docker network cut, S2 Git Data API PR + allow-list, S3 Supabase Auth with GitHub App credentials, S4 GitHub Models T1–T5 within free limits, S5 ruleset read + last-push approval, S6 Realtime with RLS.
 
 **Deliverables**
