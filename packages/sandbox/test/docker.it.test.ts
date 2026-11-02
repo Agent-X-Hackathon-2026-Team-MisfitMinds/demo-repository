@@ -28,7 +28,8 @@ describe.skipIf(!enabled)("DockerProvider (real docker)", () => {
 
     const canary = await sb.exec([
       "set -u",
-      "env | grep -Ei 'token|secret|key|password' && exit 11",
+      // Official python images set GPG_KEY (a public release-signing fingerprint) — not a secret.
+      "env | grep -v '^GPG_KEY=' | grep -Ei 'token|secret|key|password|credential' && exit 11",
       "test -e /var/run/docker.sock && exit 12",
       "test -e /work/.git && exit 13",
       "test -e $HOME/.git-credentials && exit 14",
