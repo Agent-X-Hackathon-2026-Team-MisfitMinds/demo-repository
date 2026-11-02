@@ -1,0 +1,4 @@
+docs/
+supabase/
+action/dist/
+pnpm-lock.yaml

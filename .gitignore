@@ -1,0 +1,12 @@
+node_modules/
+dist/
+!action/dist/
+.turbo/
+coverage/
+.next/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+.supabase/
+.DS_Store
